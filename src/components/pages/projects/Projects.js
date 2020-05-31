@@ -9,7 +9,7 @@ const Projects = (props) => {
   useEffect(() => {
     db.collection('project_mst')
     .onSnapshot(async projects =>{
-        let projectsData  = await projects.docs.map(project =>{
+        let projectsData = await projects.docs.map(project =>{
             let data = project.data()
             let {id} = project
             let payload ={

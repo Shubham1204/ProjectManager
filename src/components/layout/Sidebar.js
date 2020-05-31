@@ -31,13 +31,17 @@ const Sidebar = (props) => {
       <Link to="/addproject" ><span><i className="fas fa-folder-plus"></i><span className="ml-3 icon-text">Add Project</span></span></Link>
       <Link to="/addmanager"><span><i className="fas fa-user-tie"></i><span className="ml-3 icon-text">Add Manager</span></span></Link>
       <Link to="/addmember"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">Add Member</span></span></Link>
-
+      <Link to="/admins"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">View Admins</span></span></Link>
+      <Link to="/members"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">View Members</span></span></Link>
+      <Link to="/managers"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">View Managers</span></span></Link>
     </Fragment>
   );
 
   const managerlinks = (
+    <Fragment>
     <Link to="/addmember"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">Add Member</span></span></Link>
-
+    <Link to="/members"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">View Members</span></span></Link>
+    </Fragment>
   );
 
   return (

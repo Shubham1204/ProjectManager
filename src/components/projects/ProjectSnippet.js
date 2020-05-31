@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 const ProjectSnippet = (props) => {
 
   const memberproject = (
-    <Link to={`viewproject/${props.pid}`} className="btn btn-primary btn-lg float-right">View Details</Link>
-
+      <Link to={`viewproject/${props.pid}`} className="btn btn-lg float-right btn-primary" >View Details</Link>
   );
 
   const project = (
@@ -13,10 +12,11 @@ const ProjectSnippet = (props) => {
 
   );
 
+
   return (
     <div>
-
-      <div className="card">
+      
+      <div className="card" >
         <div className="card-header">
           Project Name: {props.pname}
         </div>
