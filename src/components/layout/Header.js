@@ -66,10 +66,10 @@ const Header = (props) => {
               <span className="float-left">
                 <input type="text" className="fa fa-search form-control" value={searchval} onChange={onSearchChange} placeholder="Search" />
               </span>
-              <span className="float-right">
+              {/* <span className="float-right">
                 <Link to={`search/${searchval}`}>
                   <span className="btn" onClick={search}><i className="fa fa-search text-white"></i></span></Link>
-              </span>
+              </span> */}
               {props.useremail ? profilelink : signinlink}
             </ul>
           </div>

@@ -32,7 +32,6 @@ const TaskStatus = (props) => {
 
 
   const onUpdateTaskStatus = () => {
-    console.log('inside task status', taskstatusval);
 
     db.collection('project_task_mapping').doc(id)
       .get()

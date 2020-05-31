@@ -24,7 +24,6 @@ const ViewProjects = (props) => {
 
     
     
-    console.log('role ',props.role)
 
       db
         .collection(tablename)
@@ -32,14 +31,12 @@ const ViewProjects = (props) => {
         .onSnapshot(async (members) => {
           let membersData = members.docs.map((member) => {
             let data = member.data();
-            // console.log(data);
             let { id } = member;
             let payload = {
               id,
               ...data,
             };
 
-            console.log('before ',payload)
             const projectRef = db.collection("project_mst").doc(payload.projectid);
             projectRef.get().then((doc) => {
               let data = doc.data();
@@ -68,20 +65,16 @@ const ViewProjects = (props) => {
               return mypayload;
               
             });
-            console.log('temp:- ',projectRef);
             // return temp;
           });
-          console.log("members data:-", membersData);
         });
 
         
         projectRef();
   },[]);
-  console.log('te mydata',mydata)
   
   return (
     <div>
-      {console.log('inside return:- ',mydata)}
       {mydata.map((project,idx) => (
         <div className="my-4" key={idx}>
           <ProjectSnippet

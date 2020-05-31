@@ -8,8 +8,6 @@ const AssignManager = (props) => {
 
   const history = useHistory();
 
-  const [role, setRole] = useState('');
-  const [assigned, setAssigned] = useState('');
   const [managerval, setManager] = useState('');
   const [projectname, setProjectname] = useState('');
   const [status, setStatus] = useState('');
@@ -65,14 +63,12 @@ const AssignManager = (props) => {
 
 
   const onAssignManager = () => {
-    console.log('inside assign', managerval);
     var projectid = id;
     var email = managerval;
     let postRef = db.collection('project_manager_mapping');
     let payload = { projectid, email }
     postRef.add(payload)
       .then(function (file) {
-        console.log("doc", file)
         history.goBack();
       })
   }

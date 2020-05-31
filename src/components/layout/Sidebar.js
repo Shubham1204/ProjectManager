@@ -1,27 +1,19 @@
-import React, { Component, Fragment, useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import db, { auth } from '../../firebase'
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './sidebar.css'
-import $ from 'jquery'
 
 const Sidebar = (props) => {
 
-  // console.log('header ', props.useremail, props.role)
   const [mini, setMini] = useState(true);
-  // var mini = true;
 
   const toggleSidebar = () => {
     if (mini) {
-      // console.log("opening sidebar");
       document.getElementById("mySidebar").style.width = "250px";
       document.getElementById("main").style.marginLeft = "250px";
-      // this.mini = false;
       setMini(false);
     } else {
-      // console.log("closing sidebar");
       document.getElementById("mySidebar").style.width = "85px";
       document.getElementById("main").style.marginLeft = "85px";
-      // this.mini = true;
       setMini(true);
     }
   }
@@ -39,8 +31,8 @@ const Sidebar = (props) => {
 
   const managerlinks = (
     <Fragment>
-    <Link to="/addmember"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">Add Member</span></span></Link>
-    <Link to="/members"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">View Members</span></span></Link>
+      <Link to="/addmember"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">Add Member</span></span></Link>
+      <Link to="/members"><span><i className="fas fa-users"></i><span className="ml-3 icon-text">View Members</span></span></Link>
     </Fragment>
   );
 

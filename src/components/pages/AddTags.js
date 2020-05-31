@@ -1,8 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import db from '../../firebase';
 import {useParams,useHistory} from 'react-router-dom';
-// import Posts from '';
-// import './App.css';
 
 
 const AddTags = (props) => {
@@ -10,11 +8,7 @@ const AddTags = (props) => {
     let { id } = useParams();
 
     const history = useHistory();
-    // console.log('create',props.user.uid)
     
-    const [role,setRole] = useState('');
-    const [assigned,setAssigned] = useState('');
-    const [memberval,setMember] = useState('');
     const [projectname,setProjectname] = useState('');
     const [status,setStatus] = useState('');
     const [createdate,setCreatedate] = useState('');
@@ -30,18 +24,12 @@ const AddTags = (props) => {
     
 
         let projectRef = db.collection('project_mst').doc(id)
-        // console.log(id);
         projectRef.get().then(doc =>{
-        //  console.log(doc.data());
           let {projectname,status,createdate,description} = doc.data()
             setProjectname(projectname);
             setStatus(status);
-            // setMembers(members);
             setCreatedate(createdate);
             setDescription(description);
-          
-          
-            // console.log(projectname,status,createdate,description,members,tags,tasks,links,approved,assignedmanager)
         })   
         
         db.collection('project_tag_mapping').where("projectid","==",`${id}`)
@@ -61,34 +49,16 @@ const AddTags = (props) => {
 
 
 
-    // let postRef = db.collection('user_mst').where("assigned","==","no").where("role","==","manager").get().then(snap => {
-    //     snap.forEach(doc => {
-    //         // console.log('shubham    ',doc.data());
-    //         // console.log('shubham name   ',doc.data().name);
-    //         // setName(doc.data().name);
-    //         // setSkill(doc.data().skill);
-    //         console.log(doc.data().username);
-    //     })
-    // })
                                         const onAddTags = () => {
-                                            // console.log('inside assign',memberval);
-        // console.log(content);
         var projectid= id;
         var tag = tagval;
         let postRef = db.collection('project_tag_mapping');
         let payload = {projectid,tag}
-        // console.log(payload)
-        // console.log(role);
         postRef.add(payload)
         .then(function(file){
-            // updateassignedstatus();
             console.log("doc",file);
             history.goBack();
         })
-        // setTitle('')
-        // setContent('')
-        // setUserid('')
-        // navigate('/')
     }
    
 
@@ -108,7 +78,6 @@ const AddTags = (props) => {
     <p><span className="font-weight-bold">Tags : </span>
     {tags.map(tag =>  (
               <span className="btn btn-outline-secondary mx-2" key={tag.tag}> {tag.tag}</span>        
-              // content={post.content}
               ))}
               </p>
     <span>

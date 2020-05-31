@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import db,{auth} from '../../firebase';
 import {useHistory} from 'react-router-dom';
-// import Posts from '';
-// import './App.css';
 
 const AddManager = (props) => {
 
@@ -10,7 +8,6 @@ const AddManager = (props) => {
     const history = useHistory();
 
 
-    // console.log('create',props.user.uid)
     const [username,setUsername] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
@@ -25,45 +22,28 @@ const AddManager = (props) => {
     const onEmailChange = (event) => setEmail(event.target.value);
     const onPasswordChange = (event) => setPassword(event.target.value);
     const onContactChange = (event) =>{ setContact(event.target.value);
-        // setUserid(props.user.uid);
         setRole('manager');
         setAssigned('no');
-        // setUserid('');
-        // console.log(role)
-        // console.log('insid ecreate post ',userid);
     }
     
     const onSignout = () =>{
       auth.signOut().then(function() {
-          // Sign-out successful.
-          console.log("logout");
           history.push("/");
         }).catch(function(error) {
-          // An error happened.
           var errorCode = error.code;
       var errorMessage = error.message;
-      console.log(errorMessage);
-      console.log(errorCode);
         });
   }
 
     const onAddManager = () => {
         auth.createUserWithEmailAndPassword(email, password)
         .then(() => {
-        //   setName('')
-        //   setUserid('')
-        //   setSkill('')
          setuserdata();
-          console.log('done');
           onSignout();
           history.push("/");
         })
         .catch(function(error) {
-          // Handle Errors here.
-        //   var errorCode = error.code;
           var errorMessage = error.message;
-          // console.log(errorMessage);
-          // console.log(errorCode);
           setError(errorMessage);
         });
 
@@ -75,11 +55,8 @@ const AddManager = (props) => {
         
         let postRef = db.collection('user_mst')
         let payload = {username,email,contact,role,assigned}
-        // console.log(payload)
-        console.log(payload);
         postRef.add(payload)
         .then(function(file){
-            console.log("doc",file)
         })
 
     }

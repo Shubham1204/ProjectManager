@@ -27,10 +27,8 @@ const RemoveTag = (props) => {
 
   const onRemoveTag = () => {
     db.collection('project_tag_mapping').doc(id).delete().then(function () {
-      console.log("Document successfully deleted!");
       history.goBack();
     }).catch(function (error) {
-      console.error("Error removing document: ", error);
     });
   }
 

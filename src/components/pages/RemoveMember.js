@@ -29,14 +29,10 @@ const RemoveMember = (props) => {
   }, [])
 
   const onRemove = () => {
-    console.log('inside task status', email);
-
     db.collection("project_member_mapping").doc(id).delete().then(function () {
-      console.log("Document successfully deleted!");
       updateassign()
       history.goBack();
     }).catch(function (error) {
-      console.error("Error removing document: ", error);
     });
   }
 
@@ -46,20 +42,16 @@ const RemoveMember = (props) => {
       .get()
       .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
-          console.log(doc.id, " => ", doc.data());
           db.collection('user_mst').doc(doc.id).update({
             assigned: "no"
           })
             .then(function () {
-              console.log("Document successfully updated!");
             })
             .catch(function (error) {
-              console.error("Error updating document: ", error);
             });
         });
       })
       .catch(function (error) {
-        console.log("Error getting documents: ", error);
       });
 
   }

@@ -35,13 +35,10 @@ const RemoveLink = (props) => {
 
 
   const onRemoveLink = () => {
-    console.log('inside task status', taskstatusval);
 
     db.collection('project_link_mapping').doc(id).delete().then(function () {
-      console.log("Document successfully deleted!");
       history.goBack();
     }).catch(function (error) {
-      console.error("Error removing document: ", error);
     });
   }
 

@@ -59,7 +59,6 @@ const AddLinks = (props) => {
     let payload = { projectid, linkname, link }
     postRef.add(payload)
       .then(function (file) {
-        console.log("doc", file)
         history.goBack();
       })
   }

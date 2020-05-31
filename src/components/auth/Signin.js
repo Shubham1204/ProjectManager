@@ -10,10 +10,6 @@ const Signin = (props) => {
   const onEmailChange = (event) => setEmail(event.target.value);
   const onPasswordChange = (event) => setPassword(event.target.value);
 
-
-  const [user, setUser] = useState('');
-
-
   const history = useHistory();
 
   const onSignin = () => {
@@ -23,11 +19,7 @@ const Signin = (props) => {
         history.push("/projects");
       })
       .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorMessage);
-        console.log(errorCode);
         setError(errorMessage);
       });
   }

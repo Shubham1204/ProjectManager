@@ -32,13 +32,10 @@ const RemoveManager = (props) => {
 
 
   const onRemoveManager = () => {
-    console.log('inside task status', taskstatusval);
 
     db.collection('project_manager_mapping').doc(id).delete().then(function () {
-      console.log("Document successfully deleted!");
       history.goBack();
     }).catch(function (error) {
-      console.error("Error removing document: ", error);
     });
   }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import db from '../../firebase';
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 const Approveproject = (props) => {
 

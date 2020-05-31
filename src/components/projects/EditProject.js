@@ -27,11 +27,9 @@ const EditProject = (props) => {
       description: descriptionval
     })
       .then(function () {
-        console.log("Document successfully updated!");
         history.goBack();
       })
       .catch(function (error) {
-        console.error("Error updating document: ", error);
       });
 
   }

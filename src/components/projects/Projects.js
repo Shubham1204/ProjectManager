@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProjectSnippet from "./ProjectSnippet";
 import db from "../../firebase";
-// import './App.css';
 
 const Projects = (props) => {
   
@@ -16,7 +15,6 @@ const Projects = (props) => {
                 id,
                 ...data
             }
-            // console.log(data)
             return payload
         });
         setProjects(projectsData)
@@ -24,12 +22,9 @@ const Projects = (props) => {
 
     },[])
 
-  // console.log('page load',projects)
   return (
     <div>
-      {/* {console.log(projects)} */}
       {projects.map((project) => (
-        // <h1>{project.id} {project.projectname}</h1>
         <div className="my-4" key={project.id}>
           <ProjectSnippet
             key={project.id}
