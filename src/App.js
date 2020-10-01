@@ -47,6 +47,7 @@ function App() {
   const [user, setUser] = useState(false);
   const [role, setRole] = useState('');
 
+// User authentication using firebase
   auth.onAuthStateChanged(function (user) {
     if (user) {
       setUser(user);
